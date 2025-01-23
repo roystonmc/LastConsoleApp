@@ -6,9 +6,9 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 
 // Populate values from your OpenAI deployment
-var modelId = "test-gpt-35-turbo-deployment";
-var endpoint = "https://rmc-ai-dev.openai.azure.com/";
-var apiKey = "de484c3fe6e24e9e83a468231ced2a15";
+var modelId = "test-gpt-35-turbo-deployment";  // deployment name
+var endpoint = "https://rmc-ai-dev.openai.azure.com/"; // url of my Azure AI space
+var apiKey = "de484c3fe6e24e9e83a468231ced2a15";  // api key for the Azure AI instance
 
 // Create a kernel with Azure OpenAI chat completion
 var builder = Kernel.CreateBuilder().AddAzureOpenAIChatCompletion(modelId, endpoint, apiKey);
