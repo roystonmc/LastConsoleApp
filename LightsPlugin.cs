@@ -16,7 +16,7 @@ public class LightsPlugin
    [Description("Gets a list of lights and their current state")]
    public async Task<List<LightModel>> GetLightsAsync()
    {
-      return lights;
+      return await Task.FromResult(lights);
    }
 
    [KernelFunction("change_state")]
@@ -33,7 +33,8 @@ public class LightsPlugin
       // Update the light with the new state
       light.IsOn = isOn;
 
-      return light;
+      return await Task.FromResult(light);   
+
    }
 }
 
@@ -43,7 +44,7 @@ public class LightModel
    public int Id { get; set; }
 
    [JsonPropertyName("name")]
-   public string Name { get; set; }
+   public required string Name { get; set; } = String.Empty;
 
    [JsonPropertyName("is_on")]
    public bool? IsOn { get; set; }
