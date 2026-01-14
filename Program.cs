@@ -40,7 +40,12 @@ do {
     userInput = Console.ReadLine();
 
     // Add user input
-    history.AddUserMessage(userInput);
+    if (userInput is not null) {
+        history.AddUserMessage(userInput);
+    } else
+    {
+        continue;
+    }
 
     // Get the response from the AI
     var result = await chatCompletionService.GetChatMessageContentAsync(
